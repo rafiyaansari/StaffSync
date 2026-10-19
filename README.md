@@ -2,27 +2,54 @@
 
 StaffSync is a full-stack Human Resource Management System (HRMS) designed to manage employees, attendance, leave requests, payroll-related information, and other HR operations through a centralized dashboard.
 
+![HR Dashboard](docs/screenshots/03-hr-dashboard.png)
+
 ## Table of Contents
 
-1. [First run in six commands](#first-run-in-six-commands)
-2. [What you get](#1-what-you-get)
-3. [Requirements](#2-requirements)
-4. [Create the database (MongoDB Atlas)](#3-create-the-database-mongodb-atlas)
-5. [Run the backend](#4-run-the-backend)
-6. [Run the frontend](#5-run-the-frontend)
-7. [Sign in + demo accounts](#6-sign-in--demo-accounts)
-8. [Environment variables](#7-environment-variables)
-9. [Everyday commands](#8-everyday-commands)
-10. [API reference + required roles](#9-api-reference--required-roles)
-11. [Business rules enforced by the server](#10-business-rules-enforced-by-the-server)
-12. [Security notes](#11-security-notes)
-13. [Automated tests + acceptance results](#12-automated-tests)
-14. [Troubleshooting](#13-troubleshooting)
-15. [Project structure](#14-project-structure)
-16. [Manual QA checklist](#15-manual-qa-checklist)
-17. [Known limitations](#16-known-limitations)
+1. [Screenshots](#screenshots)
+2. [First Run in Six Commands](#first-run-in-six-commands)
+3. [What You Get](#1-what-you-get)
+4. [Requirements](#2-requirements)
+5. [Create the Database (MongoDB Atlas)](#3-create-the-database-mongodb-atlas)
+6. [Run the Backend](#4-run-the-backend)
+7. [Run the Frontend](#5-run-the-frontend)
+8. [Sign In and Demo Accounts](#6-sign-in--demo-accounts)
+9. [Environment Variables](#7-environment-variables)
+10. [Everyday Commands](#8-everyday-commands)
+11. [API Reference and Required Roles](#9-api-reference--required-roles)
+12. [Business Rules Enforced by the Server](#10-business-rules-enforced-by-the-server)
+13. [Security Notes](#11-security-notes)
+14. [Automated Tests and Acceptance Results](#12-automated-tests--acceptance-results)
+15. [Troubleshooting](#13-troubleshooting)
+16. [Project Structure](#14-project-structure)
+17. [Manual QA Checklist](#15-manual-qa-checklist)
+18. [Known Limitations](#16-known-limitations)
+19. [License](#license)
+20. [Contributing](#contributing)
 
-## First run in six commands
+## Screenshots
+
+Explore the main StaffSync interfaces below. These images are stored in the repository under `docs/screenshots/`.
+
+### Employee Dashboard and Manager Team View
+
+| Employee Dashboard | Manager Team View |
+|:---:|:---:|
+| ![Employee Dashboard](docs/screenshots/11-employee-dashboard.png) | ![Manager Team View](docs/screenshots/16-manager-team.png) |
+
+### Leave Management and Training
+
+| HR Leave Management | HR Training |
+|:---:|:---:|
+| ![HR Leave Management](docs/screenshots/06-leaves-hr.png) | ![HR Training](docs/screenshots/09-training-hr.png) |
+
+### More Screenshots
+
+Additional screenshots cover login, registration, employee management, attendance, announcements, settings, employee leave requests, training, profiles, notifications, and manager workflows.
+
+Browse all available images in [`docs/screenshots/`](docs/screenshots/).
+
+## First Run in Six Commands
 
 Open two terminals from the project root.
 
@@ -43,11 +70,11 @@ npm install
 npm run dev
 ```
 
-Before running the seed command, configure your MongoDB connection and required environment variables as described below.
+Before running the seed command, configure MongoDB and the required environment variables as described below.
 
-Open the frontend URL printed by Vite, normally `http://localhost:5173`.
+Open the frontend URL printed by Vite, normally [http://localhost:5173](http://localhost:5173).
 
-## 1. What you get
+## 1. What You Get
 
 StaffSync provides a centralized interface for HR-related workflows.
 
@@ -68,7 +95,7 @@ StaffSync provides a centralized interface for HR-related workflows.
 - JWT-based authentication
 - REST API endpoints
 
-### Main capabilities
+### Main Capabilities
 
 Depending on the configured modules, the application supports:
 
@@ -100,7 +127,7 @@ git --version
 
 Use a Node.js version compatible with the project's dependencies.
 
-## 3. Create the database (MongoDB Atlas)
+## 3. Create the Database (MongoDB Atlas)
 
 1. Open [MongoDB Atlas](https://www.mongodb.com/atlas).
 2. Create a project and a database deployment.
@@ -120,7 +147,7 @@ Replace all placeholders before running the application.
 
 **Important:** Never commit a real database URI, password, or other secret to GitHub.
 
-## 4. Run the backend
+## 4. Run the Backend
 
 Open a terminal in the project root:
 
@@ -141,9 +168,9 @@ JWT_SECRET=<your-long-random-secret>
 
 Use the actual variable names expected by the backend code. If the project uses additional environment variables, configure those too.
 
-### Seed the database
+### Seed the Database
 
-After the database connection and environment variables are configured, run:
+After configuring the database connection and environment variables, run:
 
 ```bash
 npm run seed
@@ -151,21 +178,19 @@ npm run seed
 
 This initializes the demo data supported by the project's seed script.
 
-### Start the backend
+### Start the Backend
 
 ```bash
 npm run dev
 ```
 
-The backend normally runs on:
+The backend normally runs at:
 
-```text
-http://localhost:5000
-```
+[http://localhost:5000](http://localhost:5000)
 
 Keep this terminal open while using the application.
 
-## 5. Run the frontend
+## 5. Run the Frontend
 
 Open a second terminal in the project root:
 
@@ -177,23 +202,21 @@ npm run dev
 
 Vite normally serves the frontend at:
 
-```text
-http://localhost:5173
-```
+[http://localhost:5173](http://localhost:5173)
 
 Open the URL displayed in the terminal.
 
 If the frontend cannot communicate with the backend, verify the backend URL, API configuration, server status, and any required CORS settings.
 
-## 6. Sign in + demo accounts
+## 6. Sign In and Demo Accounts
 
 The following demo accounts are documented for local development, provided they are created by the project's seed script.
 
-| Role       | Email                         | Password        |
-| ---------- | ----------------------------- | --------------- |
+| Role | Email | Password |
+|---|---|---|
 | Admin / HR | `priya.sharma@nimbuslabs.com` | `StaffSync@123` |
-| Manager    | `rohan.kapoor@nimbuslabs.com` | `StaffSync@123` |
-| Employee   | `aarav.mehta@nimbuslabs.com`  | `StaffSync@123` |
+| Manager | `rohan.kapoor@nimbuslabs.com` | `StaffSync@123` |
+| Employee | `aarav.mehta@nimbuslabs.com` | `StaffSync@123` |
 
 The exact permissions depend on the roles and authorization rules implemented in the backend.
 
@@ -207,7 +230,7 @@ If an account does not work, confirm that:
 
 **Security warning:** These are demo credentials, not production credentials. Never deploy publicly with shared demo passwords or use them to protect real employee data.
 
-## 7. Environment variables
+## 7. Environment Variables
 
 Environment variables hold configuration that should not be hard-coded into the source.
 
@@ -215,11 +238,11 @@ Environment variables hold configuration that should not be hard-coded into the 
 
 Typical settings include:
 
-| Variable      | Purpose                                                    |
-| ------------- | ---------------------------------------------------------- |
-| `PORT`        | Backend server port                                        |
-| `MONGODB_URI` | MongoDB connection string                                  |
-| `JWT_SECRET`  | Secret used for signing or verifying authentication tokens |
+| Variable | Purpose |
+|---|---|
+| `PORT` | Backend server port |
+| `MONGODB_URI` | MongoDB connection string |
+| `JWT_SECRET` | Secret used for signing or verifying authentication tokens |
 
 Your implementation may require additional variables. Check the backend configuration and environment-variable references before starting the application.
 
@@ -235,7 +258,7 @@ VITE_API_URL=http://localhost:5000
 
 Do not place database credentials, JWT signing secrets, or other private backend secrets in frontend environment variables.
 
-### Environment file safety
+### Environment File Safety
 
 Keep local environment files out of version control:
 
@@ -248,7 +271,7 @@ Keep local environment files out of version control:
 
 You may commit example files containing placeholder values, but never commit real secrets.
 
-## 8. Everyday commands
+## 8. Everyday Commands
 
 Run commands from the appropriate directory.
 
@@ -293,7 +316,7 @@ npm run
 
 Run the tests against the current code before publishing updated test results in this README.
 
-## 9. API reference + required roles
+## 9. API Reference and Required Roles
 
 StaffSync uses a REST API for communication between the frontend and backend.
 
@@ -301,14 +324,14 @@ The API routes, HTTP methods, request bodies, response formats, and role require
 
 Typical API categories include:
 
-| Category       | Purpose                                        |
-| -------------- | ---------------------------------------------- |
-| Authentication | Sign in and authenticate users                 |
-| Employees      | Retrieve and manage employee records           |
-| Attendance     | Manage attendance information                  |
-| Leave          | Submit, retrieve, and process leave requests   |
-| Dashboard      | Retrieve summary information                   |
-| Payroll        | Access supported payroll-related functionality |
+| Category | Purpose |
+|---|---|
+| Authentication | Sign in and authenticate users |
+| Employees | Retrieve and manage employee records |
+| Attendance | Manage attendance information |
+| Leave | Submit, retrieve, and process leave requests |
+| Dashboard | Retrieve summary information |
+| Payroll | Access supported payroll-related functionality |
 
 This table describes functional categories, not a guaranteed list of route paths.
 
@@ -316,7 +339,7 @@ Before documenting individual endpoints, verify the actual Express route definit
 
 Protected endpoints should validate the authentication token and enforce the required role or permissions on the server. Hiding a button in the frontend is not sufficient authorization.
 
-## 10. Business rules enforced by the server
+## 10. Business Rules Enforced by the Server
 
 Business rules should be enforced by the backend rather than relying only on frontend validation.
 
@@ -331,7 +354,7 @@ Depending on the implemented modules, these rules may include:
 
 Refer to the backend implementation and tests for the exact rules currently enforced. Do not assume a rule is implemented unless it is supported by code or verified tests.
 
-## 11. Security notes
+## 11. Security Notes
 
 Follow these practices when developing, testing, or deploying StaffSync.
 
@@ -350,7 +373,7 @@ Follow these practices when developing, testing, or deploying StaffSync.
 
 Before using StaffSync with real employee data, perform a security review and verify the authentication, authorization, data-protection, and deployment configurations.
 
-## 12. Automated tests + acceptance results
+## 12. Automated Tests and Acceptance Results
 
 StaffSync includes automated tests and acceptance checks for supported functionality.
 
@@ -370,7 +393,7 @@ For reproducible results, document the command used and the test output.
 
 ## 13. Troubleshooting
 
-### Backend does not start
+### Backend Does Not Start
 
 - Confirm that Node.js and npm are installed.
 - Run `npm install` inside `Server`.
@@ -378,7 +401,7 @@ For reproducible results, document the command used and the test output.
 - Confirm that the configured port is available.
 - Review the terminal output for the actual error.
 
-### MongoDB connection fails
+### MongoDB Connection Fails
 
 - Verify the connection string.
 - Confirm the database username and password.
@@ -388,14 +411,14 @@ For reproducible results, document the command used and the test output.
 
 Do not share a real database connection string when asking for help.
 
-### Frontend does not start
+### Frontend Does Not Start
 
 - Run `npm install` inside `Client`.
 - Check for dependency or syntax errors.
 - Confirm the port selected by Vite.
 - Open the browser console and inspect any errors.
 
-### Sign-in fails
+### Sign-In Fails
 
 - Confirm that the backend is running.
 - Verify that the frontend is calling the correct API.
@@ -403,7 +426,7 @@ Do not share a real database connection string when asking for help.
 - Inspect the backend logs for authentication or database errors.
 - Confirm that the login request matches the API's expected payload.
 
-### API requests fail
+### API Requests Fail
 
 - Check the backend URL and port.
 - Verify the route path and HTTP method.
@@ -411,7 +434,7 @@ Do not share a real database connection string when asking for help.
 - Confirm that the request includes the required authentication token.
 - Check CORS configuration and server logs.
 
-### DNS or network connection problems
+### DNS or Network Connection Problems
 
 If the project provides dedicated DNS troubleshooting scripts, inspect the available scripts before using them:
 
@@ -421,7 +444,7 @@ npm run
 
 Use a DNS-specific workaround only when the error indicates a DNS-resolution problem. It should not replace fixing an incorrect connection string, unavailable server, or invalid credentials.
 
-## 14. Project structure
+## 14. Project Structure
 
 The repository is organized into separate frontend and backend applications.
 
@@ -446,7 +469,7 @@ The `Client` directory contains the frontend application, while `Server` contain
 
 The local `Server/.env` file should remain untracked and should not be included in public repository contents.
 
-## 15. Manual QA checklist
+## 15. Manual QA Checklist
 
 Use this checklist when verifying the application.
 
@@ -469,7 +492,7 @@ Use this checklist when verifying the application.
 
 Mark each item complete only after verifying it in the running application.
 
-## 16. Known limitations
+## 16. Known Limitations
 
 StaffSync is a software project whose available features depend on the current implementation and configuration.
 
@@ -485,11 +508,9 @@ Before using it in a production environment, verify:
 
 Any mock or demonstration mode should be enabled explicitly and clearly distinguished from production data. Do not assume that demonstration data is suitable for operational use.
 
----
-
 ## License
 
-Add the applicable license and ownership information here if the project is intended to be distributed publicly.
+No license has been specified yet. If you intend to distribute or reuse this project publicly, add an appropriate license and ownership information.
 
 ## Contributing
 
