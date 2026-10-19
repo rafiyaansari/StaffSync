@@ -1,0 +1,486 @@
+/* ==========================================================================
+   Leave management
+   ========================================================================== */
+
+/* Balance cards ---------------------------------------------------------- */
+.leave-balance-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.leave-balance-card {
+  position: relative;
+  padding: 14px 15px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.leave-balance-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2.5px;
+  background: currentColor;
+  opacity: 0.65;
+}
+
+.leave-balance-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.leave-balance-card__label {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-500);
+}
+
+.leave-balance-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  flex: none;
+  border-radius: 7px;
+}
+
+.leave-balance-card__value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 9px;
+  font-size: 25px;
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink-900);
+  font-variant-numeric: tabular-nums;
+}
+
+.leave-balance-card__value span {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--ink-400);
+}
+
+.leave-balance-card__meta {
+  margin-top: 4px;
+  font-size: 9.5px;
+  color: var(--ink-400);
+}
+
+.leave-summary-line {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  background: #fbfcfe;
+  font-size: 11.3px;
+  color: var(--ink-500);
+}
+
+.leave-summary-line > svg {
+  color: var(--blue-500);
+  flex: none;
+}
+
+.leave-summary-line strong {
+  font-weight: 650;
+  color: var(--ink-900);
+}
+
+.leave-summary-line .link-button {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* Table head ------------------------------------------------------------- */
+.leave-table-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--line-soft);
+  flex-wrap: wrap;
+}
+
+.leave-table-head .tabs {
+  border-bottom: 0;
+}
+
+.leave-table-head .tabs__tab {
+  margin-bottom: 0;
+  padding-bottom: 13px;
+}
+
+.leave-table-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.leave-table-filters__search {
+  width: 210px;
+}
+
+.leave-type-cell {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.leave-type-cell__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;
+  height: 29px;
+  flex: none;
+  border-radius: 8px;
+}
+
+.leave-policy-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px 13px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 10px;
+  font-size: 10.3px;
+  line-height: 1.55;
+  color: var(--ink-400);
+}
+
+.leave-policy-note > svg {
+  flex: none;
+  color: var(--ink-300);
+}
+
+.leave-policy-note__owner {
+  margin-left: auto;
+  white-space: nowrap;
+  font-weight: 550;
+  color: var(--ink-500);
+}
+
+/* Request form ----------------------------------------------------------- */
+.leave-form {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.leave-form__type-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 12px;
+}
+
+.leave-form__balance {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 38px;
+  padding-bottom: 1px;
+}
+
+.leave-form__balance-label {
+  font-size: 10px;
+  color: var(--ink-400);
+}
+
+.leave-form__dates {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+}
+
+.leave-form__days {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: -4px;
+  padding: 7px 9px;
+  border-radius: 7px;
+  background: #f4f8ff;
+  font-size: 10.5px;
+  color: var(--ink-500);
+}
+
+.leave-form__days svg {
+  color: var(--blue-500);
+}
+
+.leave-form__days strong {
+  color: var(--ink-900);
+  font-weight: 650;
+}
+
+.leave-form__note {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: -3px;
+  font-size: 9.5px;
+  line-height: 1.55;
+  color: var(--ink-300);
+}
+
+.leave-form__note svg {
+  flex: none;
+  margin-top: 1px;
+}
+
+.leave-form--compact {
+  gap: 11px;
+}
+
+/* Decision / details modal ----------------------------------------------- */
+.decision {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.decision__person {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #fbfcfe;
+}
+
+.decision__person-text {
+  min-width: 0;
+}
+
+.decision__name {
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--ink-900);
+}
+
+.decision__meta {
+  margin-top: 1px;
+  font-size: 10.5px;
+  color: var(--ink-400);
+}
+
+.decision__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px 16px;
+}
+
+.decision__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.decision__label {
+  display: block;
+  font-size: 9.3px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.decision__value {
+  font-size: 11.8px;
+  font-weight: 550;
+  color: var(--ink-800);
+  line-height: 1.45;
+}
+
+.decision__note-block {
+  padding: 12px 13px;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  background: #fcfdff;
+}
+
+.decision__reason {
+  margin-top: 3px;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--ink-600);
+  white-space: pre-line;
+}
+
+.decision__field textarea,
+.decision__field .textarea {
+  margin-top: 3px;
+}
+
+/* Status banner ---------------------------------------------------------- */
+.leave-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.leave-detail__banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+}
+
+.leave-detail__banner-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.leave-detail__banner-title {
+  font-size: 12.5px;
+  font-weight: 650;
+  color: var(--ink-900);
+}
+
+.leave-detail__banner-text {
+  margin-top: 1px;
+  font-size: 10.8px;
+  line-height: 1.5;
+  color: var(--ink-500);
+}
+
+.leave-detail__banner--green {
+  border-color: rgba(10, 148, 104, 0.18);
+  background: var(--success-50);
+}
+
+.leave-detail__banner--green .leave-detail__banner-icon {
+  color: var(--success-600);
+}
+
+.leave-detail__banner--amber {
+  border-color: rgba(192, 122, 18, 0.2);
+  background: var(--warning-50);
+}
+
+.leave-detail__banner--amber .leave-detail__banner-icon {
+  color: var(--warning-600);
+}
+
+.leave-detail__banner--rose {
+  border-color: rgba(212, 58, 82, 0.18);
+  background: var(--danger-50);
+}
+
+.leave-detail__banner--rose .leave-detail__banner-icon {
+  color: var(--danger-600);
+}
+
+.leave-detail__banner--slate {
+  border-color: var(--line);
+  background: var(--surface-2);
+}
+
+.leave-detail__banner--slate .leave-detail__banner-icon {
+  color: var(--ink-400);
+}
+
+/* Responsive ------------------------------------------------------------- */
+@media (max-width: 1280px) {
+  .leave-balance-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .leave-balance-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .leave-summary-line {
+    flex-wrap: wrap;
+  }
+
+  .leave-summary-line .link-button {
+    margin-left: 0;
+  }
+
+  .leave-table-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding-top: 2px;
+  }
+
+  .leave-table-head .tabs {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  .leave-table-filters {
+    width: 100%;
+  }
+
+  .leave-table-filters__search {
+    width: 100%;
+  }
+
+  .leave-table-filters .filter-control {
+    flex: 1;
+    width: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .leave-balance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .leave-form__dates,
+  .decision__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .leave-form__type-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .leave-form__balance {
+    height: auto;
+  }
+
+  .leave-policy-note {
+    flex-wrap: wrap;
+  }
+
+  .leave-policy-note__owner {
+    margin-left: 0;
+  }
+}

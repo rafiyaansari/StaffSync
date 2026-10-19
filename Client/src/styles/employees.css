@@ -1,0 +1,345 @@
+/* ==========================================================================
+   Employees — directory, drawer, form
+   ========================================================================== */
+
+/* Drawer profile --------------------------------------------------------- */
+.emp-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.emp-detail__hero {
+  margin: -22px -22px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.emp-detail__hero-band {
+  height: 74px;
+  background:
+    radial-gradient(420px 150px at 85% 0%, rgba(47, 111, 237, 0.4), transparent 70%),
+    linear-gradient(118deg, #0e2c4f, #0b2545 60%, #16406d);
+}
+
+.emp-detail__hero-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: -30px;
+  padding: 0 22px 18px;
+}
+
+.emp-detail__hero-body .avatar {
+  box-shadow: 0 0 0 4px var(--surface), 0 8px 20px -12px rgba(11, 37, 69, 0.6);
+}
+
+.emp-detail__identity {
+  min-width: 0;
+  max-width: 100%;
+  padding-bottom: 2px;
+}
+
+.emp-detail__name {
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--ink-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emp-detail__role {
+  margin-top: 2px;
+  font-size: 11.5px;
+  color: var(--ink-400);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emp-detail__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.emp-detail__actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.emp-detail__quick {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 10px 11px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--surface);
+  color: inherit;
+  transition: border-color 0.15s var(--ease), box-shadow 0.15s var(--ease);
+}
+
+.emp-detail__quick:hover {
+  border-color: #c6d8f6;
+  box-shadow: 0 8px 18px -14px rgba(11, 37, 69, 0.55);
+}
+
+.emp-detail__quick > span:last-child {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 1px;
+}
+
+.emp-detail__quick strong {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.emp-detail__quick span span {
+  font-size: 11.5px;
+  color: var(--ink-800);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emp-detail__section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.emp-detail__section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9.5px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.emp-detail__section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line-soft);
+}
+
+.emp-detail__bio {
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--ink-600);
+}
+
+.emp-detail__leaves {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.emp-detail__leave {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border: 1px solid var(--line-soft);
+  border-radius: 9px;
+  background: #fcfdff;
+}
+
+.emp-detail__leave-bar {
+  width: 3px;
+  height: 30px;
+  flex: none;
+  border-radius: 99px;
+}
+
+.emp-detail__leave > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.emp-detail__leave-title {
+  font-size: 11.8px;
+  font-weight: 600;
+  color: var(--ink-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emp-detail__leave-title span {
+  font-weight: 500;
+  color: var(--ink-400);
+}
+
+.emp-detail__leave-meta {
+  margin-top: 1px;
+  font-size: 9.8px;
+  color: var(--ink-400);
+}
+
+.emp-detail__stamp {
+  padding-top: 4px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 9.5px;
+  color: var(--ink-300);
+  text-align: center;
+}
+
+/* Mini balances ---------------------------------------------------------- */
+.mini-balances {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.mini-balance {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 11px;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  background: #fcfdff;
+}
+
+.mini-balance__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.mini-balance__top span {
+  font-size: 10.5px;
+  color: var(--ink-500);
+}
+
+.mini-balance__top strong {
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--ink-900);
+  font-variant-numeric: tabular-nums;
+}
+
+.mini-balance__meta {
+  font-size: 9px;
+  color: var(--ink-300);
+}
+
+/* Employee form ---------------------------------------------------------- */
+.employee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.employee-form__preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fbfcfe, #f7f9fd);
+}
+
+.employee-form__preview > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.employee-form__preview-name {
+  font-size: 13.5px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+}
+
+.employee-form__preview-meta {
+  margin-top: 1px;
+  font-size: 10.8px;
+  color: var(--ink-400);
+}
+
+.employee-form__preview-status {
+  flex: none;
+  align-self: flex-start;
+  padding: 2px 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 8.5px;
+  font-weight: 650;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.employee-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.employee-form__section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9.5px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.employee-form__section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line-soft);
+}
+
+.employee-form .field__label {
+  font-size: 10.8px;
+}
+
+/* Team view adjustments -------------------------------------------------- */
+.team-footnote svg {
+  color: var(--ink-300);
+  flex: none;
+}
+
+@media (max-width: 560px) {
+  .emp-detail__hero {
+    margin: -18px -18px 0;
+  }
+
+  .emp-detail__hero-body {
+    padding: 0 18px 16px;
+  }
+
+  .emp-detail__actions,
+  .mini-balances {
+    grid-template-columns: 1fr;
+  }
+
+  .emp-detail__badges {
+    margin-top: 6px;
+  }
+}

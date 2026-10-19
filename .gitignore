@@ -1,0 +1,25 @@
+
+# Dependencies
+node_modules/
+
+# Build output and coverage
+dist/
+build/
+coverage/
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Local editor settings
+.vscode/
